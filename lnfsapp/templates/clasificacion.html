@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title> Clasificacion LNFS </title>
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		<style>
+			body{
+				background-image: url('https://wallpaperstock.net/negro-piso-wallpapers_6854_1680x1050.jpg');
+			}
+			table#t01 {
+				width: 70%;
+				border: 3px solid black;
+			}
+			th, td {
+				text-align: center;
+				border: 1px solid black;
+				border-collapse: collapse;
+			}
+			table#t01 tr:nth-child(even) {
+				background-color:#87CEEB;
+			}
+			table#t01 tr:nth-child(odd) {
+				background-color:#00BFFF;
+			}
+			table#t01 th {
+				background-color:#20B2AA;
+				color:#FFFAFA;
+			}
+			td {
+				color:#000000;
+			}
+			h1 {
+				color:#FFFAFA;
+				font-family: verdana;
+				font-size:300%;
+			}
+			.css-serial {
+				counter-reset: serial-number;
+			}
+			.css-serial td:first-child:before {
+				counter-increment: serial-number;
+				content: counter(serial-number);
+			}
+		</style>
+		<meta charset="UTF-8">
+	</head>
+
+	<body>
+		<nav class="navbar navbar-inverse">
+			<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="/home">Inicio</a>
+			</div>
+			<div>
+			<ul class="nav navbar-nav">
+			  <li><a href="/lnfsapp">Clasificacion</a></li>
+			  <li><a href="/calendario">Calendario</a></li>
+			</ul>
+			</div>
+			</div>
+		</nav>
+	
+		<center>
+		<h1> <u> CLASIFICACIÓN LNFS </u> </h1>
+		
+		<table id="t01" class="css-serial">
+			<tr>
+				<th>Posición</th>
+				<th>Escudo</th>
+				<th>Equipo</th>
+				<th>Puntos</th>		
+				<th>Partidos Ganados</th>
+				<th>Partidos Empatados</th>
+				<th>Partidos Perdidos</th>
+				<th>Partidos Jugados</th>
+				<th>Goles a favor</th>
+				<th>Goles en contra</th>
+			</tr>
+			{% for i in equipos %}
+			<tr>
+				<td></td>
+				<td>
+					<a href=/lnfsapp/{{i.nombreUrl}}>
+						<img src="{{ MEDIA_URL}}{{i.escudo}}"style="width:50px;height:50px;"> </a> 
+				</td>
+				<td>{{i.nombre}}</td>
+				<td>{{i.puntos}}</td>	
+				<td>{{i.partidosGanados}}</td>
+				<td>{{i.partidosEmpatados}}</td>
+				<td>{{i.partidosPerdidos}}</td>
+				<td>{{i.partidosJugados}}</td>
+				<td>{{i.golesAfavor}}</td>
+				<td>{{i.golesAcontra}}</td>
+			</tr>
+			{% endfor %}
+		</table>
+		</center>
+	</body>
+
+</html>

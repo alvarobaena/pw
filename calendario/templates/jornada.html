@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title> Jornada{{jornada.numero}} </title>
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		
+		<style>
+			body{
+				background-image: url('https://wallpaperstock.net/negro-piso-wallpapers_6854_1680x1050.jpg');
+			}
+			table#t01 {
+				width:70%;
+				border: 3px solid black;
+			}
+			th, td {
+				text-align: center;
+				border: 1px solid black;
+				border-collapse: collapse;
+			}
+			table#t01 tr:nth-child(even) {
+				background-color:#87CEEB;
+			}
+			table#t01 tr:nth-child(odd) {
+				background-color:#00BFFF;
+			}
+			table#t01 th {
+				background-color: #20B2AA;
+				color: #FFFAFA;
+			}
+			td {
+				color: #000000;
+			}
+			h1 {
+				color: #FFFAFA;
+				font-family: verdana;
+				font-size: 300%;
+			}
+			h2 {
+				color: #000000;
+				font-family: verdana;
+				font-size: 250%;
+			}
+			h3  {
+				color: #000000;
+				font-family: verdana;
+				font-size: 200%;
+			}
+		</style>
+		<meta charset="UTF-8">
+	</head>
+	
+	<body>
+		<nav class="navbar navbar-inverse">
+			<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="/home">Inicio</a>
+			</div>
+			<div>
+			<ul class="nav navbar-nav">
+			  <li><a href="/lnfsapp">Clasificacion</a></li>
+			  <li><a href="/calendario">Calendario</a></li>
+			</ul>
+			</div>
+			</div>
+		</nav>
+		
+		<center>
+		<h1> <strong><u> Jornada {{jornada.numero}}: Partidos </u></strong> </h1>
+		<br></br>
+		<table id="t01">
+			<tr>
+				<th>Equipo Local</th>
+				<th>Equipo Visitante</th>
+				<th>Resultado</th>
+				<th>Pabellon</th>
+				<th>Fecha</th>
+			</tr>
+			{% for i in partidos %}
+			<tr>
+				<td>{{i.equipoLocal}}</td>
+				<td>{{i.equipoVisit}}</td>
+				<td>{{i.resultado}}</td>
+				<td>{{i.equipoLocal.pabellon}}</td>
+				<td>{{i.fechaInicio}}</td>
+			</tr>
+			{% endfor %}
+		</table>
+		</center>
+	</body>
+	
+</html>
