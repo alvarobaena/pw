@@ -11,7 +11,7 @@ from django.views.generic import TemplateView
 #from django.contrib.auth.views import login, logout
 
 urlpatterns = [
-    url(r'^home/', include('home.urls')),
+    url(r'^$', include('home.urls')),
     url(r'^calendario/', include('calendario.urls')),
     url(r'^lnfsapp/', include('lnfsapp.urls')),
     #url(r'^usuario/registro$', 'usuario.views.signup', name='signup'),
